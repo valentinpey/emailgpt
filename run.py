@@ -15,7 +15,7 @@ sidebar_options = {
     "AnswerGPT": answer_gpt,
     "EmailGPT": email_gpt
 }
-selected_option = st.sidebar.selectbox("Sélectionnez une option", list(sidebar_options.keys()))
+selected_option = st.sidebar.selectbox("Select an option", list(sidebar_options.keys()))
 
 # Affiche la page correspondante à l'option sélectionnée
 sidebar_options[selected_option]()

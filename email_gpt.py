@@ -29,7 +29,7 @@ class EmailGPT:
         system_instructions = """
             You are a helpful AI assistant with expertise in crafting email.
             Your responses should be clear, utilizing proper structured techniques like bullet points, and paragraph breaks where needed.
-            You will respond in the tone precised in the following.
+            You will respond in the tone precised in the following. If the tone is casual or slang you can add some emojis.
         """
         # Define the specific instructions based on user input
         system_instructions += "\n{synthetic_level}"

@@ -163,7 +163,7 @@ def email_gpt():
 
     # Get the tone of the message from the user
     tone = st.sidebar.selectbox(
-        "Select the tone of the message:", options = ["Slang", "Casual",  "Professional", "Legal/Official"] #["Slang", "Colloquial", "Casual", "Informal", "Friendly", "Neutral", "Professional", "Business Formal", "Formal", "Legal/Official"]
+        "Select the tone of the message:", options = [ "Casual","neutral" ,"Professional"] #["Slang", "Colloquial", "Casual", "Informal", "Friendly", "Neutral", "Professional", "Business Formal", "Formal", "Legal/Official"]
     )
 
     # Set up the form for user input

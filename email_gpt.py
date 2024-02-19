@@ -15,7 +15,7 @@ from openai import OpenAIError
 
 
 class EmailGPT:
-    def __init__(self, api_key, synthetic_level, tone, nom_destinataire, main_objective, key_points, signature):
+    def __init__(self, api_key, synthetic_level, tone, nom_destinataire, main_objective, key_points, signature, language):
         self.api_key = api_key
         self.synthetic_level = synthetic_level
         self.tone = tone
@@ -23,6 +23,8 @@ class EmailGPT:
         self.main_objective = main_objective
         self.key_points = key_points
         self.signature = signature
+        self.language = language
+
 
     def define_instructions(self):
         # Define the common instructions for the language model
@@ -39,6 +41,8 @@ class EmailGPT:
         if self.key_points:
             system_instructions += "\nEnsure to include these key points in your response: {key_points}."
         system_instructions +="- Signature (name, position, contact information): {signature}\n"
+        system_instructions +="- The email must be written in the following Language: {language}\n"
+
 
         system_message_prompt = SystemMessagePromptTemplate.from_template(system_instructions)
         chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt])

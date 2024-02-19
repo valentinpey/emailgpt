@@ -165,6 +165,9 @@ def email_gpt():
     tone = st.sidebar.selectbox(
         "Select the tone of the message:", options = [ "Casual","neutral" ,"Professional"] #["Slang", "Colloquial", "Casual", "Informal", "Friendly", "Neutral", "Professional", "Business Formal", "Formal", "Legal/Official"]
     )
+    language = st.sidebar.selectbox(
+        "Select the language used for the email:", options = [ "English","French" ,"German"], index=0 #["Slang", "Colloquial", "Casual", "Informal", "Friendly", "Neutral", "Professional", "Business Formal", "Formal", "Legal/Official"]
+    )
 
     # Set up the form for user input
     with st.form("myform"):
@@ -176,7 +179,6 @@ def email_gpt():
         #action_souhaitée = st.text_input("Action souhaitée de la part du destinataire:")
         #date_limite = st.text_input("Date limite pour l'action ou la réponse:")
         signature = st.text_input("Signature:", help="Enter your name or the name of the sender. (name, position, informations of contact)")
-
         # Add a submit button to the form
         submitted = st.form_submit_button("Submit")
         if not openai_api_key:
@@ -185,7 +187,7 @@ def email_gpt():
                 st.info("Please enter all required information.")
         # If the form is submitted, generate the email response
         elif submitted:
-            emailGPT = EmailGPT(api_key=openai_api_key, synthetic_level=synthetic_level, tone=tone, nom_destinataire = nom_destinataire, main_objective = main_objective, key_points=key_points, signature=signature)
+            emailGPT = EmailGPT(api_key=openai_api_key, synthetic_level=synthetic_level, tone=tone, nom_destinataire = nom_destinataire, main_objective = main_objective, key_points=key_points, signature=signature, language=language)
             # Generate the email response
             progress_bar = st.progress(0)
             with st.spinner('Generating response...'):

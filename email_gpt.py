@@ -60,7 +60,8 @@ class EmailGPT:
                                         synthetic_level=self.synthetic_level,
                                         signature=self.signature,
                                         tone=self.tone,
-                                        key_points=self.key_points
+                                        key_points=self.key_points,
+                                        language=self.language
                                         ).to_messages()
             response = chat(request)
             return response.content
